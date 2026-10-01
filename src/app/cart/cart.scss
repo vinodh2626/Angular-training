@@ -1,0 +1,109 @@
+$primary-color: #1d5fbf;
+$text-color: #526173;
+$heading-color: #182230;
+
+:host {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.5rem;
+	width: 90%;
+	margin: 2.5rem auto;
+}
+
+h2,
+:host > p {
+	grid-column: 1 / -1;
+}
+
+h2 {
+	margin: 0;
+	color: $heading-color;
+}
+
+.cart-card {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	min-height: 390px;
+	padding: 1.5rem;
+	border: 1px solid #e3e8ef;
+	border-radius: 14px;
+	background: #ffffff;
+	box-shadow: 0 4px 10px rgba(31, 41, 55, 0.06),
+		0 14px 30px rgba(31, 41, 55, 0.08);
+
+	img {
+		width: 100%;
+		height: 220px;
+		max-height: 220px;
+		object-fit: scale-down;
+	}
+
+	h3 {
+		min-height: 47px;
+		margin: 0;
+		color: $heading-color;
+		font-size: 1.05rem;
+		font-weight: 800;
+		line-height: 1.4;
+		text-transform: capitalize;
+		display: -webkit-box;
+		line-clamp: 2;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	p {
+		margin: 0;
+		color: $text-color;
+		line-height: 1.45;
+		overflow-wrap: anywhere;
+	}
+
+	p:nth-of-type(1) {
+		min-height: 65px;
+		font-size: 0.9rem;
+		line-height: 1.5;
+		display: -webkit-box;
+		line-clamp: 3;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	p:nth-of-type(2) {
+		color: $heading-color;
+		font-size: 0.92rem;
+		font-weight: 600;
+	}
+
+	strong {
+		margin-top: auto;
+		color: $primary-color;
+		font-size: 1rem;
+		font-weight: 800;
+	}
+}
+
+:host > p {
+	margin: 0;
+	color: $text-color;
+	text-align: center;
+}
+
+@media (max-width: 900px) {
+	:host {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	:host {
+		grid-template-columns: minmax(0, 1fr);
+		width: calc(100% - 2rem);
+		margin: 1.5rem auto;
+	}
+}

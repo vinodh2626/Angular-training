@@ -1,0 +1,18 @@
+<div class="formValue">
+    <input type="text" [(ngModel)]="starting" />
+
+    <input type="text" [(ngModel)]="ending"/>
+
+    <button (click)="add()">ClickMe</button>
+</div>
+
+@if(total) {
+    <p>{{total}}</p>
+}
+
+<div class="number">
+    <input type="text" [(ngModel)]="printNumber"/>
+    <button (click)="numprint()">NumberPrint</button>
+</div>
+
+ <pre>{{result}}</pre>

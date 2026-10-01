@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>date1</th>
+            <th>date1full</th>
+            <th>date2</th>
+            <th>date2full</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of data; track $index) {
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.date1}}</td>
+                <td>{{item.date1full}}</td>
+                <td>{{item.date2}}</td>
+                <td>{{item.date2full}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

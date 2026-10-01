@@ -1,0 +1,50 @@
+<div class="search-input">
+  <h2>Products Count: {{ filteredProducts.length }}</h2>
+  <h2>likeProduct count: {{select.length}}</h2>
+  <input type="text" placeholder="Search a title" [(ngModel)]="searchTerm">
+</div>
+@if (employees.length === 0) {
+<p class="loading-message">Loading employees...</p>
+} @else {
+<div class="card">
+  @for (emp of filteredProducts; track emp.id) {
+  <div class="card-body">
+    <div class="card-head">
+      <p class="employee-id">{{emp.id}}</p>
+      <div class="card-icon">
+          <button type="button" (click)="likeProduct(emp)" [ngClass]="emp.liked ? 'added':'add'">{{ emp.liked ? 'Added' : 'Add' }}</button>
+      </div>
+    </div>
+    <div class="card-image">
+      <img [src]="emp.thumbnail" alt="product-img">
+    </div>
+    <p class="employee-company">category: {{emp.category}}</p>
+    <p class="employee-name" [title]="emp.title">title: {{ emp.title }}</p>
+    <p class="employee-email" [title]="emp.description">Description: {{emp.description}}</p>
+    <p class="employee-city">price: {{emp.price}}</p>
+    <button (click)="view(emp.id)">
+      View
+    </button>
+  </div>
+  }
+</div>
+}
+
+@if(selectedEmployee) {
+<div class="card-position">
+  <div class="card-popup">
+    <button class="close-btn" (click)="selectedEmployee = null">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+    <p class="employee-id">{{selectedEmployee.id}}</p>
+    <p class="employee-name" [title]="selectedEmployee.title">title: {{ selectedEmployee.title }}</p>
+    <p class="employee-email" [title]="selectedEmployee.description">description: {{selectedEmployee.description}}</p>
+    <p class="employee-company">category: {{selectedEmployee.category}}</p>
+    <p class="employee-city">price:{{selectedEmployee.price}}</p>
+    <div class="footer-btn">
+      <button class="delete" (click)="del(selectedEmployee.id)">Delete</button>
+      <button class="close" (click)="selectedEmployee = null">close</button>
+    </div>
+  </div>
+</div>
+}
